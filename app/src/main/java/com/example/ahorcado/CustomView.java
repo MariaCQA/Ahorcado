@@ -81,4 +81,53 @@ public class CustomView extends View {
         stage = 0;
         invalidate();
     }
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        // Obtener las dimensiones del canvas
+        int canvasWidth = canvas.getWidth();
+        int canvasHeight = canvas.getHeight();
+
+        // Definir las coordenadas del centro
+        int centerX = canvasWidth / 2;
+        int centerY = canvasHeight / 3; //
+
+
+        switch (stage) {
+            case 1:
+                drawHead(canvas, centerX, centerY);
+                break;
+            case 2:
+                drawHead(canvas, centerX, centerY);
+                drawTrunk(canvas, centerX, centerY);
+                break;
+            case 3:
+                drawHead(canvas, centerX, centerY);
+                drawTrunk(canvas, centerX, centerY);
+                drawArm(canvas, centerX - 80, centerY-70 , 45); // Brazo izquierdo, rotado 45 grados
+                break;
+            case 4:
+                drawHead(canvas, centerX, centerY);
+                drawTrunk(canvas, centerX, centerY);
+                drawArm(canvas, centerX - 80, centerY-70 , 45); // Brazo izquierdo, rotado 45 grados
+                drawArm(canvas, centerX +5, centerY -160, -90); // Brazo derecho, rotado -90 grados
+                break;
+            case 5:
+                drawHead(canvas, centerX, centerY);
+                drawTrunk(canvas, centerX, centerY);
+                drawArm(canvas, centerX - 80, centerY -70, 45); // Brazo izquierdo, rotado 45 grados
+                drawArm(canvas, centerX +5, centerY -160, -90); // Brazo derecho, rotado -90 grados
+                drawLeg(canvas, centerX-220 , centerY -100, 65); // Pierna izquierda, rotada 65 grados
+                break;
+            case 6:
+                drawHead(canvas, centerX, centerY);
+                drawTrunk(canvas, centerX, centerY);
+                drawArm(canvas, centerX - 80, centerY-70, 45); // Brazo izquierdo, rotado 45 grados
+                drawArm(canvas, centerX +5, centerY -160, -90); // Brazo derecho, rotado -90 grados
+                drawLeg(canvas, centerX - 220, centerY -100, 65); // Pierna izquierda, rotada 65 grados
+                drawLeg(canvas, centerX - 130, centerY -140, -50); // Pierna derecha, rotada -50 grados
+                break;
+        }
+    }
 }
